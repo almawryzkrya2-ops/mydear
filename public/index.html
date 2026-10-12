@@ -1,0 +1,209 @@
+﻿<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#120d18" />
+  <meta name="description" content="إلى ريما... افتحي الباب" />
+  <title>إلى ريما... افتحي الباب</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="page-glow" aria-hidden="true"></div>
+  <div class="stars" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <header class="topbar">
+    <div class="brand" aria-label="علامة الموقع">
+      <span class="brand-mark">✦</span>
+      <span>إلى ريما</span>
+    </div>
+    <nav class="stage-nav" aria-label="مراحل الرحلة">
+      <button class="stage-button active" data-screen="secret-door">الباب</button>
+      <button class="stage-button" data-screen="puzzle">اللغز</button>
+      <button class="stage-button" data-screen="time-machine">الآلة</button>
+      <button class="stage-button" data-screen="star-sky">النجوم</button>
+      <button class="stage-button" data-screen="finale">النهاية</button>
+    </nav>
+  </header>
+
+  <main class="experience" aria-live="polite">
+    <section id="secret-door" class="screen active" aria-label="مرحلة الباب السري">
+      <div class="door-scene">
+        <div class="door-frame">
+          <div class="door-shadow"></div>
+          <div class="door" id="main-door">
+            <div class="door-panel">
+              <div class="door-core">
+                <span class="door-text">ريما...</span>
+                <span class="door-glow"></span>
+              </div>
+            </div>
+            <div class="door-knob"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="secret-copy">
+        <p class="eyebrow">رسالة سرية</p>
+        <p>ريما...</p>
+        <p>كنت أتمنى أن أطرق بابكِ بنفسي، وأن أضع هديتكِ بين يديكِ، وأن أرى وجهكِ عندما تفتحينها...</p>
+        <p>لكن بيني وبينكِ مسافة.</p>
+        <p>لذلك قررت أن أبني لكِ بابًا آخر.</p>
+        <p class="lead">هل تفتحينه؟</p>
+        <button id="open-door" class="primary-button">أفتح الباب</button>
+      </div>
+    </section>
+
+    <section id="puzzle" class="screen" aria-label="مرحلة اللغز">
+      <div class="panel-card">
+        <p class="eyebrow">قبل أن تدخلي</p>
+        <h2>هذه الهدية لا تُعطى لمن يجدها فقط...</h2>
+        <p class="soft-copy">بل لمن يعرف الحكاية.</p>
+
+        <div class="riddle-box">
+          <label for="puzzle-input">أي عام تخبئ فيه أولى صفحات هذه الرحلة؟</label>
+          <div class="input-row">
+            <input id="puzzle-input" type="text" inputmode="numeric" autocomplete="off" placeholder="اكتبي السنة" maxlength="4" />
+            <button id="check-puzzle" class="primary-button">ابدئي الرحلة</button>
+          </div>
+          <p id="puzzle-message" class="puzzle-message" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="time-machine" class="screen" aria-label="مرحلة آلة الزمن">
+      <div class="machine-layout">
+        <div class="time-machine-visual" aria-hidden="true">
+          <div class="machine-ring"></div>
+          <div class="machine-center"></div>
+          <div id="year-buttons" class="year-buttons"></div>
+        </div>
+
+        <article class="station-card">
+          <div class="station-header">
+            <span id="station-year" class="station-year">2022</span>
+            <span id="station-phase" class="station-phase">أولى صفحات رحلتنا</span>
+          </div>
+
+          <div class="station-copy">
+            <p id="station-text"></p>
+          </div>
+
+          <div class="station-navigation" aria-label="التنقل بين محطات آلة الزمن">
+            <button id="previous-station" class="secondary-button" type="button">المحطة السابقة</button>
+            <span id="station-progress" class="station-progress" aria-live="polite"></span>
+            <button id="next-station" class="primary-button" type="button">المحطة التالية</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="star-sky" class="screen star-screen" aria-label="سماء النجوم التفاعلية">
+      <div class="star-scene">
+        <div id="star-decoration" class="star-decoration" aria-hidden="true"></div>
+        <div id="falling-stars" class="falling-stars" aria-hidden="true"></div>
+        <div class="star-heading">
+          <p class="eyebrow">رسائل خبأها زكريا</p>
+          <h2 id="star-intro"></h2>
+          <p id="star-progress" class="star-progress" aria-live="polite"></p>
+        </div>
+        <div id="star-field" class="star-field" aria-label="اختاري نجمة لاكتشاف رسالة"></div>
+        <div id="star-heart" class="star-heart" aria-live="polite" hidden>
+          <div id="heart-stars" class="heart-stars" aria-hidden="true"></div>
+          <strong id="heart-name"></strong>
+          <p id="star-closing"></p>
+          <div id="star-replay-list" class="star-replay-list" aria-label="إعادة قراءة رسائل النجوم"></div>
+        </div>
+        <button id="continue-from-stars" class="primary-button star-continue" type="button" hidden>انتقلي إلى الشمعة</button>
+      </div>
+      <div id="star-dialog" class="star-dialog" hidden>
+        <div class="star-dialog-backdrop" data-close-star-dialog></div>
+        <article class="star-message-card" role="dialog" aria-modal="true" aria-labelledby="star-message-text">
+          <button id="close-star-dialog" class="star-dialog-close" type="button" aria-label="إغلاق الرسالة">×</button>
+          <span class="eyebrow">رسالة من بين النجوم</span>
+          <p id="star-message-text"></p>
+          <button id="star-message-done" class="secondary-button" type="button">العودة إلى السماء</button>
+        </article>
+      </div>
+    </section>
+
+    <section id="finale" class="screen" aria-label="مرحلة النهاية">
+      <div class="finale-layout">
+        <div class="candle-area">
+          <div id="candle" class="candle lit" aria-label="شمعة مضاءة">
+            <span class="flame"></span>
+            <span class="wick"></span>
+            <span class="wax"></span>
+          </div>
+          <button id="extinguish-candle" class="secondary-button">إطفاء الشمعة</button>
+        </div>
+
+        <article class="finale-card" id="finale-message-card" hidden>
+          <p class="eyebrow">من قلبٍ إلى قلب</p>
+          <h2>إلى ريما،</h2>
+          <p id="final-message"></p>
+          <div class="signature-line">مع كل الحب،<br /><strong id="signature-name">زكريا</strong></div>
+          <button id="restart-journey" class="primary-button">أعيد الرحلة</button>
+          <div id="gift-invitation" class="gift-invitation" hidden>
+            <p id="gift-tease-first"></p>
+            <p id="gift-tease-second"></p>
+            <button id="open-gift-stage" class="secondary-button" type="button">بقي شيء صغير لكِ... 🎁</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="gift-box-stage" class="screen gift-screen" aria-label="صندوق الهدية السري">
+      <div class="gift-stage-content">
+        <p class="eyebrow">مفاجأة أخيرة</p>
+        <h2 id="gift-prompt"></h2>
+        <div id="gift-box-scene" class="gift-box-scene">
+          <div class="gift-aura" aria-hidden="true"></div>
+          <div id="gift-sparkles" class="gift-sparkles" aria-hidden="true"></div>
+          <div class="gift-box" aria-hidden="true">
+            <div class="gift-box-inside"></div>
+            <div class="gift-box-body">
+              <span class="gift-ribbon gift-ribbon-vertical"></span>
+              <span class="gift-ribbon gift-ribbon-horizontal"></span>
+              <span class="gift-bow gift-bow-left"></span>
+              <span class="gift-bow gift-bow-right"></span>
+              <span class="gift-bow-center"></span>
+            </div>
+            <div class="gift-box-lid">
+              <span class="gift-ribbon gift-ribbon-vertical"></span>
+              <span class="gift-ribbon gift-ribbon-horizontal"></span>
+            </div>
+          </div>
+        </div>
+        <button id="open-gift" class="primary-button gift-open-button" type="button">افتحي هديتكِ</button>
+
+        <article id="gift-card" class="gift-card" hidden>
+          <div class="gift-card-ornament" aria-hidden="true">✦</div>
+          <p id="gift-card-salutation" class="gift-card-salutation"></p>
+          <img id="gift-card-image" class="gift-card-image" alt="" hidden />
+          <div id="gift-card-paragraphs" class="gift-card-paragraphs"></div>
+          <p id="gift-card-closing" class="gift-card-closing"></p>
+          <div class="gift-card-signature">
+            <span id="gift-card-signature"></span>
+            <strong id="gift-card-heart"></strong>
+          </div>
+          <div class="gift-card-ornament bottom" aria-hidden="true">✦</div>
+        </article>
+
+        <div id="gift-actions" class="gift-actions" hidden>
+          <button id="save-gift-card" class="primary-button" type="button">احتفظي بهذه الهدية</button>
+          <button id="reopen-gift" class="secondary-button" type="button">أعيدي فتح الهدية</button>
+          <button id="restart-from-gift" class="secondary-button" type="button">العودة إلى البداية</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="/content.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
